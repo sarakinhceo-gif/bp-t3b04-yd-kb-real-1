@@ -1,211 +1,465 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>인문 철학 지식 저널 및 아카이브</title>
+  <title>여의도 구조주의 언어학 & 현대 실존주의 비평 저널 — PHILOSOPHY.YD</title>
+  <meta name="description" content="여의도 인문 살롱을 중심으로 펼쳐지는 스피노자의 코나투스 정서론, 질 들뢰즈의 리좀적 탈영토화 공간 역학, 그리고 중세 천사들의 언어 형이상학을 체계적으로 연구하고 기록하는 지성인 아카이브 플랫폼입니다.">
+  <meta name="keywords" content="여의도 철학, 구조주의, 스피노자, 들뢰즈 리좀, 실존주의, 인문 저널">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Serif+KR:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-color: #ffffff;
-      --text-color: #0f172a;
+      --fg-color: #0f172a;
       --accent-color: #2563eb;
       --muted-color: #64748b;
+      --card-bg: #f8fafc;
       --border-color: #e2e8f0;
-      --font-swiss: 'Inter', 'Noto Sans KR', sans-serif;
+      --font-serif: 'Noto Serif KR', serif;
+      --font-sans: 'Inter', sans-serif;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       background-color: var(--bg-color);
-      color: var(--text-color);
-      font-family: var(--font-swiss);
+      color: var(--fg-color);
+      font-family: var(--font-serif);
       line-height: 1.8;
-      letter-spacing: -0.01em;
-      padding: 0 24px;
+      padding: 40px;
     }
-    .container {
-      max-width: 900px;
+    .wrapper {
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 60px 0;
     }
     header {
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 24px;
-      margin-bottom: 40px;
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
+      align-items: center;
+      margin-bottom: 80px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 32px;
     }
-    .logo {
-      font-size: 1.25rem;
+    .brand {
+      font-family: var(--font-sans);
+      font-size: 1.8rem;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.05em;
+      color: var(--fg-color);
       text-decoration: none;
-      color: var(--text-color);
     }
-    nav { display: flex; gap: 20px; }
+    .brand span { color: var(--accent-color); }
+    nav { display: flex; gap: 32px; }
     nav a {
       color: var(--muted-color);
       text-decoration: none;
+      font-family: var(--font-sans);
       font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
       font-weight: 600;
-      transition: color 0.2s ease;
+      letter-spacing: 0.15em;
     }
     nav a:hover { color: var(--accent-color); }
-    main { padding-bottom: 60px; }
-    .meta-tag {
-      font-size: 0.75rem;
-      font-family: monospace;
-      text-transform: uppercase;
+    
+    main { margin-bottom: 100px; }
+    .label {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
       color: var(--accent-color);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
       font-weight: 700;
-      letter-spacing: 0.1em;
-      margin-bottom: 16px;
-      display: inline-block;
     }
     h1 {
-      font-size: 2.3rem;
+      font-size: 3rem;
       font-weight: 700;
-      line-height: 1.3;
-      letter-spacing: -0.02em;
-      color: var(--text-color);
-      margin-bottom: 32px;
-    }
-    .content {
-      font-size: 1.05rem;
-      color: var(--text-color);
+      line-height: 1.25;
+      color: var(--fg-color);
       margin-bottom: 48px;
-      font-weight: 400;
+      letter-spacing: -0.02em;
     }
-    .content p { margin-bottom: 20px; }
-    .juice-link {
-      color: var(--accent-color);
-      text-decoration: none;
-      border-bottom: 1px solid var(--accent-color);
-      font-weight: 600;
-      transition: all 0.2s ease;
+    .intro-text {
+      font-size: 1.15rem;
+      color: #334155;
+      font-weight: 300;
+      max-width: 800px;
+      margin-bottom: 80px;
+      text-align: justify;
     }
-    .juice-link:hover {
-      background-color: rgba(37, 99, 235, 0.05);
-    }
-    .post-grid {
-      border-top: 1px solid var(--border-color);
-      padding-top: 40px;
-      margin-top: 40px;
-    }
-    .grid-title {
-      font-size: 0.85rem;
-      font-weight: 700;
+    .intro-text p { margin-bottom: 28px; }
+    
+    .section-title {
+      font-family: var(--font-sans);
+      font-size: 1.1rem;
+      color: var(--fg-color);
+      letter-spacing: 0.2em;
+      margin-bottom: 40px;
+      border-bottom: 2px solid var(--fg-color);
+      padding-bottom: 12px;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted-color);
-      margin-bottom: 24px;
+      font-weight: 700;
     }
-    .posts-list {
+    .grid-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 100px;
+    }
+    @media(max-width: 768px) {
+      .grid-section { grid-template-columns: 1fr; }
+    }
+    .essay-card {
+      border: 1px solid var(--border-color);
+      padding: 30px;
+      background-color: var(--card-bg);
+    }
+    .essay-card h3 {
+      font-size: 1.4rem;
+      color: var(--fg-color);
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+    .essay-card p {
+      font-size: 0.95rem;
+      color: var(--muted-color);
+      text-align: justify;
+    }
+
+    /* PBN Feeds */
+    .pbn-feed-section {
+      margin-top: 100px;
+    }
+    .pbn-grid {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 24px;
     }
-    .post-card {
+    .pbn-card {
+      background-color: var(--card-bg);
       border: 1px solid var(--border-color);
-      padding: 24px;
-      border-radius: 4px;
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 250px;
+      transition: all 0.3s ease;
       text-decoration: none;
-      color: var(--text-color);
-      transition: all 0.2s ease;
     }
-    .post-card:hover {
+    .pbn-card:hover {
       border-color: var(--accent-color);
       transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.05);
     }
-    .post-card h3 {
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-    .post-card p {
-      font-size: 0.9rem;
-      color: var(--muted-color);
-      font-weight: 300;
-    }
-    footer {
-      border-top: 1px solid var(--border-color);
-      padding-top: 24px;
-      margin-top: 60px;
+    .pbn-meta {
       display: flex;
       justify-content: space-between;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      color: var(--accent-color);
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+    .pbn-meta span {
+      border: 1px solid var(--accent-color);
+      padding: 2px 10px;
+    }
+    .pbn-card h4 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--fg-color);
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    .pbn-card p {
+      font-size: 0.95rem;
+      color: #334155;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .read-more {
+      align-self: flex-start;
+      color: var(--accent-color);
+      font-size: 0.9rem;
+      font-weight: 700;
+      font-family: var(--font-sans);
+      letter-spacing: 0.05em;
+    }
+    
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding-top: 48px;
+      margin-top: 100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-sans);
       font-size: 0.8rem;
       color: var(--muted-color);
     }
-    footer a { color: var(--muted-color); text-decoration: none; }
+    footer a { color: var(--muted-color); text-decoration: none; margin-left: 20px; }
     footer a:hover { color: var(--accent-color); }
+    
     @media(max-width: 768px) {
-      header { flex-direction: column; align-items: flex-start; gap: 16px; }
-      h1 { font-size: 1.8rem; }
+      header { flex-direction: column; gap: 24px; align-items: flex-start; }
+      h1 { font-size: 2.2rem; }
+      footer { flex-direction: column; gap: 20px; text-align: center; }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "PHILOSOPHY.YD",
+    "url": "https://yd-kb.pages.dev",
+    "description": "여의도 인문 철학 리좀적 공간 미학 및 메타피지컬 언어학 연구 저널"
+  }
+  </script>
 </head>
 <body>
-  <div class="container">
+  <div class="wrapper">
     <header>
-      <a href="/" class="logo">KR.GEEK</a>
-      <nav><a href="index.html">HOME</a> | <a href="sitemap.xml">SITEMAP</a></nav>
+      <a href="index.html" class="brand">PHILOSOPHY.<span>YD</span></a>
+      <nav>
+        <a href="index.html">LOGOS_NET</a>
+        <a href="sitemap.xml">SITEMAP</a>
+      </nav>
     </header>
+    
     <main>
-      <div class="meta-tag">// SWISS ACCENTED GRID SYSTEM</div>
-      <h1>인문 철학 지식 저널 및 아카이브</h1>
-      <div class="content">
-        환영합니다. 본 블로그 공간은 세련되고 품격 있는 <strong>인문 철학</strong> 분야의 깊이 있는 전문 에세이와 실용 기술 논문을 공유하는 매니아 전용 아카이브 저널입니다. 아래의 최근 기사 목록을 통해 새로운 지식의 지평을 넓혀 보시기 바랍니다.
+      <div class="label">// METAPHYSICAL HUMANITIES & PHILOSOPHY JOURNAL</div>
+      <h1>여의도 구조주의 언어학 & 현대 실존주의 비평 저널</h1>
+      
+      <div class="intro-text">
+        <p>본 저널은 여의도 금융 타운의 치밀한 구조성을 미시적으로 사색하며, 네덜란드의 광학 철학자 스피노자가 역설한 신과 자연의 자기 보존 코나투스 정서론, 질 들뢰즈의 고독한 리좀적 탈영토화 공간 역학, 그리고 중세 스콜라 철학의 천사들의 영적 메시지 언어 형이상학을 깊이 있고 투명하게 학술 고찰하는 현대 지성 아카이브 저널 플랫폼입니다.</p>
+        <p>우리는 고착화된 관념적 이데올로기의 도식을 넘어, 픽셀과 텍스트의 유기적 매개 구조가 지성인의 무의식 속에 파생시키는 탈주선의 궤적을 탐구합니다. 아래에 정교하게 배치된 철학 평론 기사와 여의도 로컬 게스트 피드 네트워크를 향유해 보십시오.</p>
       </div>
       
+      <div class="grid-section">
+        <div class="essay-card">
+          <h3>질 들뢰즈의 리좀(Rhizome) 공간 역학으로 조망한 대도시 아날로그 골목길</h3>
+          <p>시작과 끝이 규정되지 않고 끊임없이 파편적으로 연결되며 영토를 횡단하는 질 들뢰즈의 리좀 공간 모델을 규격화된 격자 대도시가 아닌 오랜 역사적 골목길의 공간 미학에 적용해 볼 때, 규칙적 구획이 파괴되며 창조되는 유기적 리듬과 해체적 주체성의 궤적을 인문 조형학적으로 정밀하게 고찰합니다.</p>
+        </div>
+        <div class="essay-card">
+          <h3>바뤼흐 스피노자의 에티카(Ethica) 속 동물의 코나투스(Conatus)와 비주류 정서론</h3>
+          <p>네덜란드의 렌즈 가공 철학자 스피노자의 불후의 대작 에티카에서 피력된 코나투스(자기 보존적 영속 노하우)를 생명체 전반에 투영해 볼 때, 인간 중심주의적 억압 정서에서 벗어나 개별 개체의 우주적 가치와 감각 보존의 물리적 메커니즘이 갖는 조형적 연대를 실증적으로 밝혀냅니다.</p>
+        </div>
+      </div>
       
-      <div class="post-grid">
-        <div class="grid-title">Recent Post Archive</div>
-        <div class="posts-list">
+      <div class="pbn-feed-section">
+        <div class="section-title">// RECENT GUEST NETWORK (YEOUIDO LOCAL PEER FEED)</div>
+        <div class="pbn-grid">
           
-        <a href="posts/normal-1.html" class="post-card">
-          <h3>바뤼흐 스피노자의 에티카(Ethica) 속 동물의 코나투스(Conatus)와 비주류 정서론 분석</h3>
-          <p>네덜란드의 고독한 렌즈 가공 철학자 스피노자의 주저 에티카에서 피력된 코나투스(자신의 존재를 유지하려는 영속적 본성 노력) 개념을 동물에게 투영해 볼 때, 인간 중심적 관점에서 해...</p>
-        </a>
-      
+          <a href="posts/review-001.html" class="pbn-card">
+            <div class="pbn-meta">
+              <span>⭐ REVIEW</span>
+              <time datetime="2026-05-27">2026-05-27</time>
+            </div>
+            <h4>여의도 노래방 내돈내산 찐속마음 — 실장 인사이더의 3개월 직접 검증 요금 대조 리뷰</h4>
+            <p>어이 bro! 여의도 금융가 빌딩 숲 뒤편 샛강 이면도로 구석진 골목길에서 2차 술자리를 잡으려다 요금 눈탱이 맞을까 봐 쫄아있지? 오늘은 10년 단골 상수의 룸 위생 살균 공조 필터 점검 노하우와 진짜 가성비 정찰 요금표를 백도어 털어내듯 속 시원히 폭로해 준다.</p>
+            <div class="read-more">자세히 보기 →</div>
+          </a>
 
-        <a href="posts/normal-2.html" class="post-card">
-          <h3>질 들뢰즈의 리좀(Rhizome) 공간 역학으로 조망한 아날로그 골목길의 인문 구조학</h3>
-          <p>시작과 끝이 규정되지 않고 끊임없이 파편적으로 연결되며 영토를 가로지르는 들뢰즈의 리좀 모델을 격자형 대도시가 아닌 오랜 유기적 골목길의 공간 미학에 적용해 볼 때, 규칙적 구획이...</p>
-        </a>
-      
+          <a href="posts/review-002.html" class="pbn-card">
+            <div class="pbn-meta">
+              <span>⭐ REVIEW</span>
+              <time datetime="2026-05-27">2026-05-27</time>
+            </div>
+            <h4>여의도 노래방 찐후기와 MK울트라 청문회에 숨겨진 밀실 통제 메커니즘의 진실</h4>
+            <p>1970년대 미 의회 MK울트라 기밀 청문회 녹취록 속에서 들춰낸 인간 감각 통제와 밀실 차단 실험의 기괴한 조형성! 오늘은 그 충격적인 음모 메타포를 적용해, 여의도 일대 노래방 부스의 진짜 위생 환기 등급과 5인 세트당 정량 안주 요금을 철저하게 분석해 본다.</p>
+            <div class="read-more">자세히 보기 →</div>
+          </a>
 
-        <a href="posts/normal-3.html" class="post-card">
-          <h3>중세 스콜라 철학의 영적 통신 논쟁: 천사들의 비물질적 메시지 전달 속도와 주파수</h3>
-          <p>중세 대철학자 토마스 아퀴나스가 주창했던 천사들의 언어(Speech of Angels) 형이상학은 물리적 육체와 공간의 장벽이 없는 순수한 지성적 존재들이 어떻게 공간을 왜곡하고 ...</p>
-        </a>
-      
+          <a href="posts/guide-003.html" class="pbn-card">
+            <div class="pbn-meta">
+              <span>💡 GUIDE</span>
+              <time datetime="2026-05-27">2026-05-27</time>
+            </div>
+            <h4>여의도 비즈니스 룸 예약을 위한 주니어 막내의 철통 예약 프로토콜 가이드</h4>
+            <p>처음으로 국회 인근이나 증권가 VIP 바이어 접대 예약을 책임지게 된 주니어들의 바가지 차단 행동 강령. NSA 대규모 기밀 도감청 프리즘에 우회 터널링 보안 쉘을 세팅하듯, 매장의 감춰진 진짜 마진 가격을 파악해 실장 지명 딜링으로 완벽한 서비스를 선점하는 팁.</p>
+            <div class="read-more">자세히 보기 →</div>
+          </a>
 
-        <a href="posts/juice-1.html" class="post-card">
-          <h3>지적 인문 철학 독자들을 위해 준비한 마포 셔츠룸 통합 안내 리포트</h3>
-          <p>신과 만물의 필연적인 자기 보존 욕구와 중심을 인정하지 않는 무정형의 리좀적 골목길 사색을 거치며 시대의 심연을 정밀하게 성찰해 나가는 깊이 있는 지성인분들이라면, 거칠고 차가운 ...</p>
-        </a>
-      
+          <a href="posts/guide-004.html" class="pbn-card">
+            <div class="pbn-meta">
+              <span>💡 GUIDE</span>
+              <time datetime="2026-05-27">2026-05-27</time>
+            </div>
+            <h4>여의도 노래방 골든아워 선점 요령 및 안전한 심야 대리 귀가 교통 허브 동선 매핑</h4>
+            <p>목요일 밤 and 주말 금융가 피크 아워에 대기 시간을 제로로 날려버리는 예약 예약 요령. 건물 1층 ATM 접근성 확보와 편리한 발렛 주차 상황 분석, 그리고 대리운전과 택시 기사가 1초 만에 꼬이는 여의도 대로변 코너 최적 교통 허브 동선 설계 지침.</p>
+            <div class="read-more">자세히 보기 →</div>
+          </a>
 
-        <a href="posts/juice-2.html" class="post-card">
-          <h3>지적 인문 철학 독자들을 위해 준비한 마포 셔츠룸 통합 안내 리포트</h3>
-          <p>신과 만물의 필연적인 자기 보존 욕구와 중심을 인정하지 않는 무정형의 리좀적 골목길 사색을 거치며 시대의 심연을 정밀하게 성찰해 나가는 깊이 있는 지성인분들이라면, 거칠고 차가운 ...</p>
-        </a>
-      
+          <a href="posts/compare-005.html" class="pbn-card">
+            <div class="pbn-meta">
+              <span>⚖️ COMPARE</span>
+              <time datetime="2026-05-27">2026-05-27</time>
+            </div>
+            <h4>여의도 노래방 가격 비교 매트릭스 — 가성비 및 위생 상태 대조 리포트</h4>
+            <p>포털의 가짜 별점 대행 광고 리뷰에 눈탱이 맞지 않는 유일한 해답. 여의도 샛강 배후 상권 일대의 로컬 업소 10곳을 직접 샅샅이 잠입 조사하여 확보한 코스별 진짜 시간당 요금 단가 매트릭스와 마이크 필터 소독 청결 상태를 투명하게 공개 대조 정리한 고품격 폭로형 리포트.</p>
+            <div class="read-more">자세히 보기 →</div>
+          </a>
+
         </div>
       </div>
     </main>
-    <footer>
-      <div>&copy; 2026 KR.GEEK. ALL RIGHTS RESERVED.</div>
+    
+    
+
+
+
+
+
+
+<!-- PBN Recent Posts Feed Section -->
+<section class="recent-posts-section" aria-label="최신 글 피드" style="padding:60px 20px;background:#f7fafc;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0">
+  <div style="max-width:1100px;margin:0 auto">
+    <h3 style="font-size:1.5rem;font-weight:800;color:#1a202c;text-align:center;margin-bottom:32px;letter-spacing:-0.025em">📝 최신 관련 포스트</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
+      
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
       <div>
-        <a href="sitemap.xml">SITEMAP</a> | 
-        <a href="#">PRIVACY</a> | 
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⚖️ COMPARE</span>
+          <time datetime="2026-05-27">2026-05-27</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">여의도 노래방 가격 비교 매트릭스 — 가성비 및 위생 상태 대조 리포트 — PHILOSOPHY.YD</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis">REPORTS // MAY 27, 2026 여의도 노래방 가격 비교 매트릭스 — 가성비 및 위생 상태 대조 리포트 어이 bro, 여의도 금융가 일대 복잡하게 뒤엉킨 빌딩가 뒷골목에서 중요한 접대 자리를 성공적으로 세팅하고 내 피 같은 지갑 전선을 철통 방어하기 위해 좌</p>
+      </div>
+      <a href="posts/compare-005.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>💡 GUIDE</span>
+          <time datetime="2026-05-27">2026-05-27</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">여의도 비즈니스 룸 예약을 위한 주니어 막내의 철통 예약 프로토콜 가이드 — PHILOSOPHY.YD</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis">GUIDES // MAY 27, 2026 여의도 비즈니스 룸 예약을 위한 주니어 막내의 철통 예약 프로토콜 가이드 어이 bro! 회사에서 중요한 비즈니스 바이어 접대나 대규모 부서 단체 예약을 덜컥 떠맡게 된 주니어 막내들, 다들 쫄아서 손가락만 빨고 있지? 쾌적하게 </p>
+      </div>
+      <a href="posts/guide-003.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>💡 GUIDE</span>
+          <time datetime="2026-05-27">2026-05-27</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">여의도 노래방 골든아워 선점 요령 및 안전한 심야 대리 귀가 교통 허브 동선 매핑 — PHILOSOPHY.YD</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis">GUIDES // MAY 27, 2026 여의도 노래방 골든아워 선점 요령 및 안전한 심야 대리 귀가 교통 허브 동선 매핑 어이 bro! 목요일 밤이나 금요일 늦은 밤, 회사 동료들이나 바이어 접대를 마치고 2차로 기분 좋게 룸을 선점하려는데 입구 앞 가득 들어찬 웨이</p>
+      </div>
+      <a href="posts/guide-004.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-05-24">2026-05-24</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">지적 인문 철학 독자들을 위해 준비한 마포 셔츠룸 통합 안내 리포트</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis"></p>
+      </div>
+      <a href="posts/juice-1.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-05-24">2026-05-24</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">지적 인문 철학 독자들을 위해 준비한 마포 셔츠룸 통합 안내 리포트</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis"></p>
+      </div>
+      <a href="posts/juice-2.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-06-10">2026-06-10</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">여의도 노래방 내돈내산에 관한 흔한 오해, 직접 확인해보니 달랐던 점</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis">제목: 창작한 제목 | "소울류 게임의 비밀 지역 배치 패턴" 아, 진짜... 다크 소울 1편 출시 전 데모 버전에서만 존재했던 특정 지역과 적 배치를 통해 게임 난이도와 플레이 테마에 어떠한 차이가 있었는지 알아볼 필요가 있다. ### 소제목- 초기 조건과 실패 원인</p>
+      </div>
+      <a href="posts/myth-002-lfp73f.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-05-24">2026-05-24</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">바뤼흐 스피노자의 에티카(Ethica) 속 동물의 코나투스(Conatus)와 비주류 정서론 분석</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis"></p>
+      </div>
+      <a href="posts/normal-1.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-05-24">2026-05-24</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">질 들뢰즈의 리좀(Rhizome) 공간 역학으로 조망한 아날로그 골목길의 인문 구조학</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis"></p>
+      </div>
+      <a href="posts/normal-2.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-05-24">2026-05-24</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">중세 스콜라 철학의 영적 통신 논쟁: 천사들의 비물질적 메시지 전달 속도와 주파수</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis"></p>
+      </div>
+      <a href="posts/normal-3.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-06-05">2026-06-05</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">여의도 노래방 내돈내산 솔직 후기 — 3개월 써본 사람의 리얼 리뷰</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis">내돈내산 노래방을 3개월 동안 사용해본 후기에요. 저는 평소 노래방을 자주 가는 사람이 아니었지만, 최근에 친구들과 함께 여의도 노래방을 방문하면서 내돈내산 노래방을 알게 되었습니다. 처음에는 가격이 조금 부담스러웠지만, 노래방의 퀄리티와 서비스가 마음에 들어서 3개월</p>
+      </div>
+      <a href="posts/review-001.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-06-01">2026-06-01</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">월 3 천 찍고도 문 닫은 그날, POS 단말기가 뱉은 에러코드 0x4F 의 진실</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis">nightclub_interior, dim_lighting, receipt_pile, accounting_book, closed_sign, empty_hallway, calculator, pos_terminal, financial_stress, realistic, de</p>
+      </div>
+      <a href="posts/review-002.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-05-27">2026-05-27</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">아이고, 형님들! 테라포밍 마스 비너스 확장, 그거 2인플 밸런스 붕괴라던데, 진짜 속마음이 궁금하시죠? ^^</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis">아이고, 형님들! ^^ 요즘 보드게임 이야기 좀 나눈다 하면 꼭 나오는 그 '테라포밍 마스' 말이죠. 특히 '비너스 확장' 나왔을 때, 이거 뭐… 세상 떠들썩했잖아요? 근데 제가 또 가만히 있을 수가 없어서, 제 딴에는 꽤 깊이 파고들었지 뭡니까. ^^ 검색창 뒤져봐도</p>
+      </div>
+      <a href="posts/t3link-006.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    </div>
+  </div>
+</section>
+<footer>
+      <div>&copy; 2026 PHILOSOPHY.YD. ALL RIGHTS RESERVED.</div>
+      <div>
+        <a href="sitemap.xml">SITEMAP</a>
+        <a href="#">PRIVACY POLICY</a>
         <a href="#">DISCLAIMER</a>
       </div>
     </footer>
