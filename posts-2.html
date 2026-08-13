@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 (2/3) · t3b04-yd-kb-real-1</title>
+  <meta name="description" content="t3b04-yd-kb-real-1에 올라온 글 목록입니다.">
+  <link rel="canonical" href="https://yeouido-song-choice.node-link.shop/posts-2.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --fg-color: #0f172a;
+      --accent-color: #2563eb;
+      --muted-color: #64748b;
+      --card-bg: #f8fafc;
+      --border-color: #e2e8f0;
+      --font-serif: 'Noto Serif KR', serif;
+      --font-sans: 'Inter', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--fg-color);
+      font-family: var(--font-serif);
+      line-height: 1.8;
+      padding: 40px;
+    }
+    .wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 80px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 32px;
+    }
+    .brand {
+      font-family: var(--font-sans);
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--fg-color);
+      text-decoration: none;
+    }
+    .brand span { color: var(--accent-color); }
+    nav { display: flex; gap: 32px; }
+    nav a {
+      color: var(--muted-color);
+      text-decoration: none;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+    }
+    nav a:hover { color: var(--accent-color); }
+    
+    main { margin-bottom: 100px; }
+    .label {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      color: var(--accent-color);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--fg-color);
+      margin-bottom: 48px;
+      letter-spacing: -0.02em;
+    }
+    .intro-text {
+      font-size: 1.15rem;
+      color: #334155;
+      font-weight: 300;
+      max-width: 800px;
+      margin-bottom: 80px;
+      text-align: justify;
+    }
+    .intro-text p { margin-bottom: 28px; }
+    
+    .section-title {
+      font-family: var(--font-sans);
+      font-size: 1.1rem;
+      color: var(--fg-color);
+      letter-spacing: 0.2em;
+      margin-bottom: 40px;
+      border-bottom: 2px solid var(--fg-color);
+      padding-bottom: 12px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .grid-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 100px;
+    }
+    @media(max-width: 768px) {
+      .grid-section { grid-template-columns: 1fr; }
+    }
+    .essay-card {
+      border: 1px solid var(--border-color);
+      padding: 30px;
+      background-color: var(--card-bg);
+    }
+    .essay-card h3 {
+      font-size: 1.4rem;
+      color: var(--fg-color);
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+    .essay-card p {
+      font-size: 0.95rem;
+      color: var(--muted-color);
+      text-align: justify;
+    }
+
+    /* PBN Feeds */
+    .pbn-feed-section {
+      margin-top: 100px;
+    }
+    .pbn-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .pbn-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 250px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    .pbn-card:hover {
+      border-color: var(--accent-color);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.05);
+    }
+    .pbn-meta {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      color: var(--accent-color);
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+    .pbn-meta span {
+      border: 1px solid var(--accent-color);
+      padding: 2px 10px;
+    }
+    .pbn-card h4 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--fg-color);
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    .pbn-card p {
+      font-size: 0.95rem;
+      color: #334155;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .read-more {
+      align-self: flex-start;
+      color: var(--accent-color);
+      font-size: 0.9rem;
+      font-weight: 700;
+      font-family: var(--font-sans);
+      letter-spacing: 0.05em;
+    }
+    
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding-top: 48px;
+      margin-top: 100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      color: var(--muted-color);
+    }
+    footer a { color: var(--muted-color); text-decoration: none; margin-left: 20px; }
+    footer a:hover { color: var(--accent-color); }
+    
+    @media(max-width: 768px) {
+      header { flex-direction: column; gap: 24px; align-items: flex-start; }
+      h1 { font-size: 2.2rem; }
+      footer { flex-direction: column; gap: 20px; text-align: center; }
+    }
+  </style>
+  <meta property="og:title" content="글 목록 (2/3) · t3b04-yd-kb-real-1">
+  <meta property="og:description" content="t3b04-yd-kb-real-1에 올라온 글 목록입니다.">
+  <meta property="og:url" content="https://yeouido-song-choice.node-link.shop/posts-2.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="index.html" class="brand">PHILOSOPHY.<span>YD</span></a>
+      <nav>
+        <a href="index.html">LOGOS_NET</a>
+        <a href="sitemap.xml">SITEMAP</a>
+      </nav>
+    </header>
+    <main>
+      <h1>글 목록</h1>
+      <p>전체 44개 · 2/3 페이지</p>
+      <ul class="post-list">
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0452.html">여의도 노래방 내돈내산 이후 찾는 상수 마사지 추천정보 가이드</a>
+        <p class="post-item__summary">여의도 노래방 내돈내산 이후 피로를 풀기 위해 상수 지역을 찾으시나요. 단순히 가까운 위치만 보고 결정하기보다 본인에게 필요한 프로그램이 무엇인지 먼저 고민하는 단계가 필요합니다. 과연 내가 원하는</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0453.html">여의도 노래방 내돈내산 후기처럼 믿을 만한 망원 노래방 추천정보</a>
+        <p class="post-item__summary">여의도 노래방 내돈내산 경험을 가진 분들은 대개 자신만의 확고한 후기 판별 기준을 가지고 있습니다. 인터넷상의 수많은 정보를 단순히 맹신하기보다는 나름의 검증 단계를 거쳐야 실패 확률을 줄일 수 있</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0454.html">여의도 노래방 내돈내산 경험으로 비교하는 홍대 노래방 추천정보 및 가격 기준</a>
+        <p class="post-item__summary">여의도 노래방 내돈내산 경험을 돌이켜보면 장소마다 서비스의 질적 차이가 극명하게 갈린다는 점을 깨닫게 됩니다. 여의도의 분위기와 홍대 지역은 소비자의 연령층부터 선호하는 놀이 문화까지 확연한 차이를</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0455.html">여의도 노래방 내돈내산 이후 알아보는 공덕 셔츠룸 추천정보와 예약 실패 예방</a>
+        <p class="post-item__summary">여의도 노래방 내돈내산 경험을 통해 얻은 교훈은 예약 과정에서의 치밀함이 곧 서비스의 질로 직결된다는 사실입니다. 특히 공덕 지역과 같이 수요가 몰리는 장소에서는 예약 절차를 소홀히 할 경우 낭패를</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0456.html">여의도 노래방 내돈내산 이용자가 분석한 연남 유흥 추천정보와 접근성 체크</a>
+        <p class="post-item__summary">여의도 노래방 내돈내산 활동을 즐기다 보면 자연스레 연남 지역의 분위기에도 관심을 갖게 됩니다. 다양한 유흥 시설이 밀집한 연남은 접근성이 뛰어나지만 그만큼 어떤 곳을 선택해야 할지 고민되는 장소이</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0457.html">여의도 노래방 내돈내산 경험으로 본 마곡 가라오케 추천정보</a>
+        <p class="post-item__summary">직장 동료들과 업무를 마친 뒤 적당한 장소를 찾는 일은 늘 쉽지 않습니다. 여의도 노래방 내돈내산 후기를 찾아보다가 우연히 근교의 새로운 스팟을 발견하게 되었습니다. 분위기를 중시하는 직장인들이라면</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0458.html">여의도 노래방 내돈내산 반박하며 전하는 마곡 유흥 추천정보</a>
+        <p class="post-item__summary">일부에서는 유흥업소 방문이 단순히 비용만 많이 드는 소비라고 치부하지만, 이는 장소 선택의 폭을 넓히지 못한 오해일 뿐입니다. 여의도 노래방 내돈내산 경험을 토대로 보면, 적절한 시간대에 방문했을 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0459.html">여의도 노래방 내돈내산 조건으로 찾아본 합정 노래방 추천정보</a>
+        <p class="post-item__summary">좋은 공간을 고르는 기준은 저마다 다르지만, 최소한의 충족 조건을 갖추는 것이 중요합니다. 음향 설비의 질과 인테리어의 분위기, 그리고 방문 인원수에 적합한 룸 크기가 확보되어야 합니다. 여의도 노</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0460.html">여의도 노래방 내돈내산 경험으로 알아보는 연남 클럽 추천정보 탐색</a>
+        <p class="post-item__summary">평소 퇴근 후 여의도 노래방 내돈내산 방문을 즐기는 당신은 주말 밤을 어디에서 보낼지 고민해 본 적이 있습니까? 단순히 음악 소리가 큰 곳을 찾는 것이 아니라, 전체적인 분위기와 서비스의 질을 따져</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0461.html">여의도 노래방 내돈내산 기반의 합정 셔츠룸 추천정보 필터링 방법</a>
+        <p class="post-item__summary">많은 이들이 여의도 노래방 내돈내산 경험을 토대로 새로운 유흥 문화를 탐색하곤 합니다. 하지만 합정 지역의 셔츠룸 시스템은 일반적인 가라오케와는 운영 방식이 달라 주의 깊은 접근이 필요합니다. 초심</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0462.html">여의도 노래방 내돈내산 vs 공덕 가라오케 추천정보 가격 비교 전략</a>
+        <p class="post-item__summary">여의도 노래방 내돈내산 방문 경험은 다른 지역의 업소를 이용할 때 훌륭한 잣대가 됩니다. 하지만 공덕 지역의 가라오케는 지역적 특색에 따라 가격 구성이 완전히 다를 수 있다는 점을 간과해서는 안 됩</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/guide-001-1jqdm3o.html">노래방 해결 방법 총정리</a>
+        <p class="post-item__summary">여의도는 직장인들이 밀집한 지역인 만큼 회식이나 모임 후에 노래방을 찾는 수요가 매우 많습니다. 하지만 갑작스럽게 장소를 찾으려 하면 어디가 좋을지 고민이 깊어지기 마련입니다. 성공적인 여의도 노래</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/guide-003.html">여의도 노래방 방문 시 고려해야 할 이용 가이드</a>
+        <p class="post-item__summary">여의도 지역에서 노래방을 찾는 직장인이나 방문객은 목적에 맞는 장소를 선택하는 것이 중요합니다. 이 구역은 대규모 업무 단지라는 특성상 회식이나 비즈니스 목적의 모임이 빈번하게 이루어지기 때문입니다</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/guide-004.html">여의도 노래방 선택을 위한 전략적인 가이드</a>
+        <p class="post-item__summary">여의도 지역은 직장인들의 회식 문화가 매우 발달한 곳으로, 업무가 끝난 뒤 동료들과 함께 시간을 보낼 수 있는 다양한 노래방 시설이 밀집해 있다. 이곳에서 성공적인 모임을 즐기기 위해서는 방문 목적</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/juice-1.html">여의도 노래방 내돈내산 가이드</a>
+        <p class="post-item__summary">여의도 지역의 노래방을 이용할 때, 합리적인 선택을 위해 고려해야 할 요소들이 있습니다. 이 곳은 직장인들이 회식 후 혹은 동료들과 즐거운 시간을 보낼 수 있는 공간으로 잘 알려져 있으며, 다양한 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/juice-2.html">여의도 노래방 내돈내산: 실속 있는 방문을 위한 정보</a>
+        <p class="post-item__summary">여의도 일대에서 이루어지는 가사 노래방 이용은 개인의 취향과 예산에 따라 그 선택의 폭이 매우 넓습니다. 내돈내산이라는 키워드는 무작정 비싼 곳을 선택하기보다는, 개인의 소비 성향에 맞춰 가장 효율</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/myth-002-lfp73f.html">여의도 노래방 내돈내산에 관한 흔한 오해, 직접 확인해보니 달랐던 점</a>
+        <p class="post-item__summary">여의도라는 지역적 특성 때문에 이곳의 노래방들이 모두 값비싸고 폐쇄적인 형태일 것이라고 지레짐작하는 경우가 많습니다. 하지만 실제로 여의도 노래방 내돈내산 경험담이나 이용객들의 반응을 살펴보면 이러</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-1.html">여의도 노래방 내돈내산 정보 안내</a>
+        <p class="post-item__summary">여의도 지역은 업무 중심지로서 저녁시간과 주말을 중심으로 다채로운 여가 문화를 경험할 수 있습니다. 그중에서도 노래방은 동료들과의 회식이나 친구들의 모임 장소로 꾸준히 선호되는 공간 중 하나입니다.</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-2.html">normal 2</a>
+        <p class="post-item__summary">여의도 노래방을 찾는 사람들에게는 다양한 옵션이 있습니다. 노래방은 일반적으로 음식과 음료를 제공하며, 일부 노래방은 추가적인 서비스를 제공할 수 있습니다. 노래방을 이용하는 사람들은 보통 음악을 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-3.html">여의도에서 혼자 노래 연습하기 좋은 코인 노래방 활용법</a>
+        <p class="post-item__summary">여의도 직장인들이 퇴근 후 스트레스를 해소하거나 잠시 시간을 때우기 위해 노래방을 찾을 때, 인원수가 적거나 혼자 방문해야 하는 상황이라면 코인 노래방을 이용하는 것이 경제적이고 효율적입니다. 여의</p>
+      </li>
+      </ul>
+    <nav class="pager">
+      <a class="pager__link" href="posts.html">1</a>
+      <span class="pager__current">2</span>
+      <a class="pager__link" href="posts-3.html">3</a>
+    </nav>
+    </main>
+  </div>
+</body>
+</html>

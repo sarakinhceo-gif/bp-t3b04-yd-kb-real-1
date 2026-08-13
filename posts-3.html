@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 (3/3) · t3b04-yd-kb-real-1</title>
+  <meta name="description" content="t3b04-yd-kb-real-1에 올라온 글 목록입니다.">
+  <link rel="canonical" href="https://yeouido-song-choice.node-link.shop/posts-3.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --fg-color: #0f172a;
+      --accent-color: #2563eb;
+      --muted-color: #64748b;
+      --card-bg: #f8fafc;
+      --border-color: #e2e8f0;
+      --font-serif: 'Noto Serif KR', serif;
+      --font-sans: 'Inter', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--fg-color);
+      font-family: var(--font-serif);
+      line-height: 1.8;
+      padding: 40px;
+    }
+    .wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 80px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 32px;
+    }
+    .brand {
+      font-family: var(--font-sans);
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--fg-color);
+      text-decoration: none;
+    }
+    .brand span { color: var(--accent-color); }
+    nav { display: flex; gap: 32px; }
+    nav a {
+      color: var(--muted-color);
+      text-decoration: none;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+    }
+    nav a:hover { color: var(--accent-color); }
+    
+    main { margin-bottom: 100px; }
+    .label {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      color: var(--accent-color);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--fg-color);
+      margin-bottom: 48px;
+      letter-spacing: -0.02em;
+    }
+    .intro-text {
+      font-size: 1.15rem;
+      color: #334155;
+      font-weight: 300;
+      max-width: 800px;
+      margin-bottom: 80px;
+      text-align: justify;
+    }
+    .intro-text p { margin-bottom: 28px; }
+    
+    .section-title {
+      font-family: var(--font-sans);
+      font-size: 1.1rem;
+      color: var(--fg-color);
+      letter-spacing: 0.2em;
+      margin-bottom: 40px;
+      border-bottom: 2px solid var(--fg-color);
+      padding-bottom: 12px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .grid-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 100px;
+    }
+    @media(max-width: 768px) {
+      .grid-section { grid-template-columns: 1fr; }
+    }
+    .essay-card {
+      border: 1px solid var(--border-color);
+      padding: 30px;
+      background-color: var(--card-bg);
+    }
+    .essay-card h3 {
+      font-size: 1.4rem;
+      color: var(--fg-color);
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+    .essay-card p {
+      font-size: 0.95rem;
+      color: var(--muted-color);
+      text-align: justify;
+    }
+
+    /* PBN Feeds */
+    .pbn-feed-section {
+      margin-top: 100px;
+    }
+    .pbn-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .pbn-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 250px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    .pbn-card:hover {
+      border-color: var(--accent-color);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.05);
+    }
+    .pbn-meta {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      color: var(--accent-color);
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+    .pbn-meta span {
+      border: 1px solid var(--accent-color);
+      padding: 2px 10px;
+    }
+    .pbn-card h4 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--fg-color);
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    .pbn-card p {
+      font-size: 0.95rem;
+      color: #334155;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .read-more {
+      align-self: flex-start;
+      color: var(--accent-color);
+      font-size: 0.9rem;
+      font-weight: 700;
+      font-family: var(--font-sans);
+      letter-spacing: 0.05em;
+    }
+    
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding-top: 48px;
+      margin-top: 100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      color: var(--muted-color);
+    }
+    footer a { color: var(--muted-color); text-decoration: none; margin-left: 20px; }
+    footer a:hover { color: var(--accent-color); }
+    
+    @media(max-width: 768px) {
+      header { flex-direction: column; gap: 24px; align-items: flex-start; }
+      h1 { font-size: 2.2rem; }
+      footer { flex-direction: column; gap: 20px; text-align: center; }
+    }
+  </style>
+  <meta property="og:title" content="글 목록 (3/3) · t3b04-yd-kb-real-1">
+  <meta property="og:description" content="t3b04-yd-kb-real-1에 올라온 글 목록입니다.">
+  <meta property="og:url" content="https://yeouido-song-choice.node-link.shop/posts-3.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="index.html" class="brand">PHILOSOPHY.<span>YD</span></a>
+      <nav>
+        <a href="index.html">LOGOS_NET</a>
+        <a href="sitemap.xml">SITEMAP</a>
+      </nav>
+    </header>
+    <main>
+      <h1>글 목록</h1>
+      <p>전체 44개 · 3/3 페이지</p>
+      <ul class="post-list">
+      <li class="post-item">
+        <a class="post-item__link" href="posts/qa-002-1jqdm3o.html">여의도 노래방 내돈내산</a>
+        <p class="post-item__summary">여의도는 업무 지구의 특성상 퇴근 후 동료들과 즐거운 시간을 보내려는 직장인들이 많이 찾는 지역입니다. 그중에서도 노래방은 스트레스를 해소하고 유대감을 쌓기에 더할 나위 없는 장소입니다. 깔끔한 시</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/review-001.html">여의도 노래방 내돈내산 솔직 후기</a>
+        <p class="post-item__summary">내돈내산 노래방을 3개월 동안 사용해본 후기에요. 저는 평소 노래방을 자주 가는 사람이 아니었지만, 최근에 친구들과 함께 여의도 노래방을 방문하면서 내돈내산 노래방을 알게 되었습니다. 처음에는 가격</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/review-002.html">월 3 천 찍고도 문 닫은 그날, POS 단말기가 뱉은 에러코드 0x4F 의 진실</a>
+        <p class="post-item__summary">nightclub_interior, dim_lighting, receipt_pile, accounting_book, closed_sign, empty_hallway, calculator, pos_t</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/t3link-006.html">아이고, 형님들! 테라포밍 마스 비너스 확장, 그거 2인플 밸런스 붕괴라던데, 진짜 속마음이 궁금하시죠? ^^</a>
+        <p class="post-item__summary">아, 이걸 왜 이렇게까지 파고드냐고요? 뭐, 그냥… 세상 만사가 다 그렇잖아요. 겉으로 보이는 거랑 속마음이랑은 다른 법이고, 특히 뭔가 '확장'이라는 이름으로 툭 튀어나올 땐, 분명히 우리가 모르</p>
+      </li>
+      </ul>
+    <nav class="pager">
+      <a class="pager__link" href="posts.html">1</a>
+      <a class="pager__link" href="posts-2.html">2</a>
+      <span class="pager__current">3</span>
+    </nav>
+    </main>
+  </div>
+</body>
+</html>
